@@ -7,27 +7,54 @@
         body {
             font-family: Arial;
             text-align: center;
-            margin-top: 100px;
+            background-color: #e8f0fe;
+            margin-top: 80px;
         }
 
         .calculator {
             width: 300px;
             margin: auto;
+            padding: 25px;
+            border: 3px solid #333;
+            border-radius: 15px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
         }
 
         #display {
-            width: 280px;
+            width: 270px;
             height: 50px;
             font-size: 25px;
             text-align: right;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            padding: 5px;
+            border: 2px solid #555;
+            border-radius: 8px;
+            background-color: #f2f2f2;
         }
 
         button {
             width: 60px;
             height: 50px;
             font-size: 20px;
-            margin: 3px;
+            margin: 4px;
+            border: none;
+            border-radius: 8px;
+            background-color: #d9e2f3;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #b4c7e7;
+        }
+
+        button:active {
+            background-color: #9fb6d9;
         }
     </style>
 </head>
@@ -41,21 +68,28 @@
         <input type="text" id="display" readonly>
 
         <br>
+
         <button onclick="clearDisplay()">C</button>
         <button onclick="press('7')">7</button>
         <button onclick="press('8')">8</button>
         <button onclick="press('9')">9</button>
+
         <br>
+
         <button onclick="press('4')">4</button>
         <button onclick="press('5')">5</button>
         <button onclick="press('6')">6</button>
         <button onclick="press('+')">+</button>
+
         <br>
+
         <button onclick="press('1')">1</button>
         <button onclick="press('2')">2</button>
         <button onclick="press('3')">3</button>
         <button onclick="press('-')">-</button>
+
         <br>
+
         <button onclick="press('0')">0</button>
         <button onclick="press('*')">*</button>
         <button onclick="press('/')">/</button>
@@ -67,18 +101,12 @@
     <script>
 
         function press(value) {
-
             document.getElementById("display").value += value;
-
         }
-
 
         function clearDisplay() {
-
             document.getElementById("display").value = "";
-
         }
-
 
         function calculate() {
 
@@ -92,23 +120,18 @@
                 }
 
                 if (display.value.includes("/0")) {
-                    display.value = "Cannot divide by zero";
+                    display.value = "Error";
                     return;
                 }
 
                 display.value = eval(display.value);
 
             } catch {
-
                 display.value = "Error";
-
             }
-
         }
 
     </script>
 
 </body>
 </html>
-
-  
